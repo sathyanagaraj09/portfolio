@@ -278,8 +278,7 @@
 								<span class="role-badge role-ds">Data Scientist</span>
 							</p>
 							<p>Full Stack Developer | Machine Learning Engineer | Data Science Enthusiast</p>
-							<a href="..\assets\download\resume.pdf">download resume</a>
-						</div><!--/.header-text-->
+<a href="assets/download/resume.pdf" download>Download Resume</a>						</div><!--/.header-text-->
 					</div><!--/.col-->
 				</div><!-- /.row-->
 			</div><!-- /.container-->
@@ -343,7 +342,7 @@
 											</a>
 										</li>
 										<li>
-											<a href="https://linkedin.com/in/sathya-barani" target="_blank">
+											<a href="linkedin.com/in/sathya-barani-a-n-840899304" target="_blank">
 												<i class="fa fa-linkedin" aria-hidden="true"></i>
 											</a>
 										</li>
@@ -793,7 +792,7 @@
 								<div class="hm-foot-icon">
 									<ul>
 										<li><a href="https://github.com/sathyanagaraj09" target="_blank"><i class="fa fa-github"></i></a></li>
-										<li><a href="https://linkedin.com/in/sathya-barani" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+										<li><a href="https://linkedin.com/in/sathya-barani-a-n-840899304" target="_blank"><i class="fa fa-linkedin"></i></a></li>
 										<li><a href="mailto:ansathyabarani@gmail.com"><i class="fa fa-envelope"></i></a></li>
 									</ul>
 								</div>
@@ -824,22 +823,22 @@
         <script src="assets/js/custom.js"></script>
         
         <script>
-            function showRole(role) {
-                // Update button active state
-                document.querySelectorAll('.role-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                event.target.classList.add('active');
-                
-                // Show/hide sections
-                if(role === 'developer') {
-                    document.getElementById('developer-projects').classList.add('active-section');
-                    document.getElementById('datascience-projects').classList.remove('active-section');
-                } else {
-                    document.getElementById('developer-projects').classList.remove('active-section');
-                    document.getElementById('datascience-projects').classList.add('active-section');
-                }
-            }
+            function showRole(role, btn) {
+
+    document.querySelectorAll('.role-btn').forEach(button => {
+        button.classList.remove('active');
+    });
+
+    btn.classList.add('active');
+
+    if(role === 'developer') {
+        document.getElementById('developer-projects').classList.add('active-section');
+        document.getElementById('datascience-projects').classList.remove('active-section');
+    } else {
+        document.getElementById('developer-projects').classList.remove('active-section');
+        document.getElementById('datascience-projects').classList.add('active-section');
+    }
+}
             
             // Smooth scroll
             $(document).ready(function(){
