@@ -1,0 +1,863 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+    <head>
+        <!-- meta data -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+        <!--font-family-->
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&amp;subset=devanagari,latin-ext" rel="stylesheet">
+        
+        <!-- title of site -->
+        <title>Sathya Barani | Software Developer & Data Scientist</title>
+
+        <!-- For favicon png -->
+		<link rel="shortcut icon" type="image/icon" href="#"/>
+       
+        <!--font-awesome.min.css-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!--bootstrap.min.css-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		
+		<!-- bootsnav -->
+		<link rel="stylesheet" href="assets/css/bootsnav.css">
+        
+        <!--style.css-->
+        <link rel="stylesheet" href="assets/css/style.css">
+        
+        <!--responsive.css-->
+        <link rel="stylesheet" href="assets/css/responsive.css">
+        
+        <style>
+            /* Additional styles for dual-role showcase */
+            .role-badge {
+                display: inline-block;
+                padding: 5px 15px;
+                border-radius: 30px;
+                font-size: 12px;
+                font-weight: 600;
+                margin: 0 5px;
+            }
+            .role-dev {
+                background: #2c3e50;
+                color: #fff;
+            }
+            .role-ds {
+                background: #e67e22;
+                color: #fff;
+            }
+            .section-subtitle {
+                text-align: center;
+                margin-bottom: 40px;
+                color: #666;
+                font-size: 18px;
+            }
+            .portfolio-category {
+                background: #f9f9f9;
+                padding: 40px 0;
+                margin-bottom: 30px;
+                border-radius: 10px;
+            }
+            .category-title {
+                text-align: center;
+                margin-bottom: 40px;
+                padding-bottom: 15px;
+                border-bottom: 3px solid #ffb400;
+                display: inline-block;
+                width: auto;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .category-title h3 {
+                font-size: 28px;
+                font-weight: 600;
+                margin: 0;
+            }
+            .category-title p {
+                font-size: 14px;
+                color: #777;
+                margin-top: 8px;
+            }
+            .project-card {
+                background: #fff;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+                transition: transform 0.3s, box-shadow 0.3s;
+                margin-bottom: 30px;
+                height: 100%;
+            }
+            .project-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 20px 35px rgba(0,0,0,0.12);
+            }
+            .project-img {
+                height: 220px;
+                background-size: cover;
+                background-position: center;
+                position: relative;
+            }
+            .project-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0,0,0,0.75);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 20px;
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+            .project-card:hover .project-overlay {
+                opacity: 1;
+            }
+            .project-overlay a {
+                color: #ffb400;
+                font-size: 24px;
+                background: #fff;
+                width: 48px;
+                height: 48px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                text-decoration: none;
+                transition: all 0.3s;
+            }
+            .project-overlay a:hover {
+                background: #ffb400;
+                color: #fff;
+                transform: scale(1.1);
+            }
+            .project-info {
+                padding: 20px;
+            }
+            .project-info h4 {
+                font-size: 18px;
+                font-weight: 600;
+                margin-bottom: 10px;
+                color: #2c3e50;
+            }
+            .project-info p {
+                font-size: 13px;
+                color: #666;
+                margin-bottom: 12px;
+                line-height: 1.5;
+            }
+            .tech-stack {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                margin-top: 12px;
+            }
+            .tech-stack span {
+                background: #f0f0f0;
+                padding: 4px 12px;
+                border-radius: 20px;
+                font-size: 11px;
+                font-weight: 500;
+                color: #555;
+            }
+            .dual-role-header {
+                text-align: center;
+                margin: 30px 0 20px;
+            }
+            .role-switch {
+                display: inline-flex;
+                background: #f0f0f0;
+                border-radius: 50px;
+                padding: 5px;
+            }
+            .role-btn {
+                padding: 12px 30px;
+                border-radius: 40px;
+                cursor: pointer;
+                font-weight: 600;
+                transition: all 0.3s;
+                border: none;
+                background: transparent;
+                font-size: 16px;
+            }
+            .role-btn.active {
+                background: #ffb400;
+                color: #1a1e2b;
+            }
+            .profile-section {
+                display: none;
+            }
+            .profile-section.active-section {
+                display: block;
+            }
+            .project-stats {
+                display: inline-block;
+                background: #ffb40020;
+                padding: 4px 10px;
+                border-radius: 15px;
+                font-size: 11px;
+                font-weight: 600;
+                margin-top: 8px;
+                color: #e67e22;
+            }
+            .grid-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+                gap: 30px;
+            }
+            @media (max-width: 768px) {
+                .grid-container {
+                    grid-template-columns: 1fr;
+                }
+                .role-btn {
+                    padding: 8px 20px;
+                    font-size: 14px;
+                }
+            }
+        </style>
+
+    </head>
+	
+	<body>
+		<!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+		
+		<!-- top-area Start -->
+		<header class="top-area">
+			<div class="header-area">
+				<!-- Start Navigation -->
+			    <nav class="navbar navbar-default bootsnav navbar-fixed dark no-background">
+
+			        <div class="container">
+
+			            <!-- Start Header Navigation -->
+			            <div class="navbar-header">
+			                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+			                    <i class="fa fa-bars"></i>
+			                </button>
+			                <a class="navbar-brand" href="#">Sathya Barani</a>
+			            </div><!--/.navbar-header-->
+			            <!-- End Header Navigation -->
+
+			            <!-- Collect the nav links, forms, and other content for toggling -->
+			            <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
+			                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+			                    <li class="smooth-menu"><a href="#education">education</a></li>
+			                    <li class="smooth-menu"><a href="#skills">skills</a></li>
+			                    <li class="smooth-menu"><a href="#experience">experience</a></li>
+			                    <li class="smooth-menu"><a href="#profiles">profile</a></li>
+			                    <li class="smooth-menu"><a href="#portfolio">portfolio</a></li>
+			                    <li class="smooth-menu"><a href="#contact">contact</a></li>
+			                </ul><!--/.nav -->
+			            </div><!-- /.navbar-collapse -->
+			        </div><!--/.container-->
+			    </nav><!--/nav-->
+			    <!-- End Navigation -->
+			</div><!--/.header-area-->
+
+		    <div class="clearfix"></div>
+
+		</header><!-- /.top-area-->
+		<!-- top-area End -->
+	
+		<!--welcome-hero start -->
+		<section id="welcome-hero" class="welcome-hero">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<div class="header-text">
+							<h2>hi <span>,</span> i am <br> sathya <br> barani <span>.</span>   </h2>
+							<p>
+								<span class="role-badge role-dev">Software Developer</span>
+								<span class="role-badge role-ds">Data Scientist</span>
+							</p>
+							<p>Full Stack Developer | Machine Learning Engineer | Data Science Enthusiast</p>
+							<a href="..\assets\download\resume.pdf">download resume</a>
+						</div><!--/.header-text-->
+					</div><!--/.col-->
+				</div><!-- /.row-->
+			</div><!-- /.container-->
+
+		</section><!--/.welcome-hero-->
+		<!--welcome-hero end -->
+
+		<!--about start -->
+		<section id="about" class="about">
+			<div class="section-heading text-center">
+				<h2>about me</h2>
+			</div>
+			<div class="container">
+				<div class="about-content">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="single-about-txt">
+								<h3>
+									<span class="role-badge role-dev">Software Developer</span>
+									<span class="role-badge role-ds">Data Scientist</span>
+								</h3>
+								<h3 style="margin-top:15px;">
+									Dual-skilled professional with expertise in Full Stack Development AND Data Science/Machine Learning.
+								</h3>
+								<p>
+									I am Sathya Barani A N, a Software Developer and Data Science enthusiast. As a <strong>Software Developer</strong>, I specialize in building scalable financial applications including Credit Card Management Systems, Insurance Admin Panels, Construction Management Systems, and Investment Modules using PHP, JavaScript, and modern frameworks. As a <strong>Data Scientist</strong>, I leverage Python, Machine Learning, and NLP to build intelligent systems like Sentiment Analysis and Price Prediction models with 81% accuracy, coupled with Power BI dashboards for actionable insights.
+								</p>
+								<p>
+									My technical toolkit spans across PHP, Python, JavaScript, SQL, MongoDB, Machine Learning, NLP, Power BI, and AWS. I'm passionate about creating impactful software that solves real-world problems through both robust application development and data-driven intelligence.
+								</p>
+								<div class="row">
+									<div class="col-sm-4">
+										<div class="single-about-add-info">
+											<h3>phone</h3>
+											<p>9361105525</p>
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="single-about-add-info">
+											<h3>email</h3>
+											<p>ansathyabarani@gmail.com</p>
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="single-about-add-info">
+											<h3>github</h3>
+											<p>github.com/sathyanagaraj09</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-offset-1 col-sm-5">
+							<div class="single-about-img">
+								<img src="./assets/images/portfolio/sathya.png" alt="profile_image" class="img-responsive img-circle" style="border: 5px solid #ffb400;">
+								<div class="about-list-icon">
+									<ul>
+										<li>
+											<a href="https://github.com/sathyanagaraj09" target="_blank">
+												<i class="fa fa-github" aria-hidden="true"></i>
+											</a>
+										</li>
+										<li>
+											<a href="https://linkedin.com/in/sathya-barani" target="_blank">
+												<i class="fa fa-linkedin" aria-hidden="true"></i>
+											</a>
+										</li>
+										<li>
+											<a href="mailto:ansathyabarani@gmail.com">
+												<i class="fa fa-envelope" aria-hidden="true"></i>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section><!--/.about-->
+		<!--about end -->
+		
+		<!--education start -->
+		<section id="education" class="education">
+			<div class="section-heading text-center">
+				<h2>education</h2>
+			</div>
+			<div class="container">
+				<div class="education-horizontal-timeline">
+					<div class="row">
+    <div class="col-sm-4">
+        <div class="single-horizontal-timeline">
+            <div class="experience-time">
+                <h2>2019 - 2020</h2>
+                <h3><span>HSC</span></h3>
+            </div>
+            <div class="timeline-horizontal-border">
+                <i class="fa fa-circle" aria-hidden="true"></i>
+                <span class="single-timeline-horizontal"></span>
+            </div>
+            <div class="timeline">
+                <div class="timeline-content">
+                    <h4 class="title">Higher Secondary Education</h4>
+                    <h5>Erode, Tamil Nadu, India</h5>
+                    <p class="description">
+                        Completed Higher Secondary Certificate (HSC) with a focus on Computer Science, Mathematics, and fundamental programming concepts.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+						<div class="col-sm-4">
+							<div class="single-horizontal-timeline">
+								<div class="experience-time">
+									<h2>2020 - 2023</h2>
+									<h3>B.Sc <span>Software Systems</span></h3>
+								</div>
+								<div class="timeline-horizontal-border">
+									<i class="fa fa-circle" aria-hidden="true"></i>
+									<span class="single-timeline-horizontal"></span>
+								</div>
+								<div class="timeline">
+									<div class="timeline-content">
+										<h4 class="title">Kongu Engineering College</h4>
+										<h5>Erode, India</h5>
+										<p class="description">Graduated with specialization in Software Development, Data Structures, Web Technologies, and Database Management Systems.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="single-horizontal-timeline">
+								<div class="experience-time">
+									<h2>2024</h2>
+									<h3>MAsters in <span> Data Science</span></h3>
+								</div>
+								<div class="timeline-horizontal-border">
+									<i class="fa fa-circle" aria-hidden="true"></i>
+									<span class="single-timeline-horizontal"></span>
+								</div>
+								<div class="timeline">
+									<div class="timeline-content">
+										<h4 class="title">GUVIIIT-M</h4>
+										<h5>Online Certification</h5>
+										<p class="description">Intensive program covering Machine Learning, NLP, Data Analytics with Power BI, and AWS cloud fundamentals.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</section><!--/.education-->
+		<!--education end -->
+
+		<!--skills start -->
+		<section id="skills" class="skills">
+			<div class="skill-content">
+				<div class="section-heading text-center">
+					<h2>skills</h2>
+				</div>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="single-skill-content">
+								<h4 style="margin-bottom:20px; color:#2c3e50;"><i class="fa fa-code"></i> Software Development</h4>
+								<div class="barWrapper"><span class="progressText">PHP</span><div class="single-progress-txt"><div class="progress"><div class="progress-bar" style="width: 88%;"></div></div><h3>88%</h3></div></div>
+								<div class="barWrapper"><span class="progressText">JavaScript / jQuery</span><div class="single-progress-txt"><div class="progress"><div class="progress-bar" style="width: 90%;"></div></div><h3>90%</h3></div></div>
+								<div class="barWrapper"><span class="progressText">SQL / MySQL / MongoDB</span><div class="single-progress-txt"><div class="progress"><div class="progress-bar" style="width: 87%;"></div></div><h3>87%</h3></div></div>
+								<div class="barWrapper"><span class="progressText">HTML5 / CSS3 / Bootstrap</span><div class="single-progress-txt"><div class="progress"><div class="progress-bar" style="width: 92%;"></div></div><h3>92%</h3></div></div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="single-skill-content">
+								<h4 style="margin-bottom:20px; color:#e67e22;"><i class="fa fa-bar-chart"></i> Data Science & ML</h4>
+								<div class="barWrapper"><span class="progressText">Python</span><div class="single-progress-txt"><div class="progress"><div class="progress-bar" style="width: 85%;"></div></div><h3>85%</h3></div></div>
+								<div class="barWrapper"><span class="progressText">Machine Learning / NLP</span><div class="single-progress-txt"><div class="progress"><div class="progress-bar" style="width: 80%;"></div></div><h3>80%</h3></div></div>
+								<div class="barWrapper"><span class="progressText">Power BI / Data Visualization</span><div class="single-progress-txt"><div class="progress"><div class="progress-bar" style="width: 85%;"></div></div><h3>85%</h3></div></div>
+								<div class="barWrapper"><span class="progressText">AWS / Cloud Basics</span><div class="single-progress-txt"><div class="progress"><div class="progress-bar" style="width: 75%;"></div></div><h3>75%</h3></div></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section><!--/.skills-->
+		<!--skills end -->
+
+		<!--experience start -->
+		<section id="experience" class="experience">
+			<div class="section-heading text-center">
+				<h2>experience</h2>
+			</div>
+			<div class="container">
+				<div class="experience-content">
+					<div class="main-timeline">
+						<ul>
+							<li>
+								<div class="single-timeline-box fix">
+									<div class="row">
+										<div class="col-md-5">
+											<div class="experience-time text-right">
+												<h2>2025 - Present</h2>
+												<h3>Junior Software Developer</h3>
+											</div>
+										</div>
+										<div class="col-md-offset-1 col-md-5">
+											<div class="timeline">
+												<div class="timeline-content">
+													<h4 class="title"><span><i class="fa fa-circle"></i></span> Infosel Soft Solutions</h4>
+													<h5>Chennai, India</h5>
+													<p class="description">Developed financial web applications, built Credit Card Management System using PHP & jQuery, and worked on Insure360 platform for insurance management.</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="single-timeline-box fix">
+									<div class="row">
+										<div class="col-md-offset-1 col-md-5 experience-time-responsive">
+											<div class="experience-time"><h2><span><i class="fa fa-circle"></i></span> 2025</h2><h3>Software Trainee</h3></div>
+										</div>
+										<div class="col-md-5">
+											<div class="timeline">
+												<div class="timeline-content text-right">
+													<h4 class="title">Smart Global Solutions</h4>
+													<h5>Coimbatore, India</h5>
+													<p class="description">Built backend systems using PHP & SQL, designed responsive UI components, and optimized database queries for better performance.</p>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-offset-1 col-md-5 experience-time-main">
+											<div class="experience-time"><h2><span><i class="fa fa-circle"></i></span> 2025</h2><h3>Software Trainee</h3></div>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section><!--/.experience-->
+		<!--experience end -->
+
+		<!--profiles start -->
+		<section id="profiles" class="profiles">
+			<div class="profiles-details">
+				<div class="section-heading text-center">
+					<h2>profiles</h2>
+				</div>
+				<div class="container">
+					<div class="profiles-content">
+						<div class="row text-center">
+							<div class="col-sm-3">
+								<div class="single-profile">
+									<div class="profile-txt">
+										<a href="https://github.com/sathyanagaraj09" target="_blank"><i class="fa fa-github fa-3x"></i></a>
+										<div class="profile-icon-name">github</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="single-profile">
+									<div class="profile-txt">
+										<a href="https://www.linkedin.com/in/sathya-barani-a-n-840899304/" target="_blank"><i class="fa fa-linkedin fa-3x"></i></a>
+										<div class="profile-icon-name">linkedin</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="single-profile">
+									<div class="profile-txt">
+										<a href="mailto:ansathyabarani@gmail.com"><i class="fa fa-envelope fa-3x"></i></a>
+										<div class="profile-icon-name">email</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="single-profile profile-no-border">
+									<div class="profile-txt">
+										<a href="#"><i class="fa fa-user fa-3x"></i></a>
+										<div class="profile-icon-name">portfolio</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section><!--/.profiles-->
+		<!--profiles end -->
+
+		<!--portfolio start - Dual Role Showcase -->
+		<section id="portfolio" class="portfolio">
+			<div class="portfolio-details">
+				<div class="section-heading text-center">
+					<h2>my portfolio</h2>
+				</div>
+				<div class="dual-role-header">
+					<div class="role-switch">
+						<button class="role-btn active" onclick="showRole('developer')"><i class="fa fa-code"></i> Software Developer Projects</button>
+						<button class="role-btn" onclick="showRole('datascience')"><i class="fa fa-bar-chart"></i> Data Science Projects</button>
+					</div>
+				</div>
+				
+				<!-- Software Developer Projects Section -->
+				<div id="developer-projects" class="profile-section active-section">
+					<div class="container">
+						<div class="portfolio-category">
+							<div class="text-center">
+								<div class="category-title">
+									<h3><i class="fa fa-laptop-code"></i> Full Stack Development Projects</h3>
+									<p>Enterprise Applications | Financial Systems | Management Platforms</p>
+								</div>
+							</div>
+							<div class="grid-container">
+								<div class="project-card">
+									<div class="project-img" style="background-image: url('https://img.freepik.com/free-vector/credit-card-with-chip-digital-identity-concept_23-2147922416.jpg'); background-size: cover;">
+										<div class="project-overlay">
+											<a href="https://github.com/sathyanagaraj09" target="_blank"><i class="fa fa-github"></i></a>
+											<a href="#"><i class="fa fa-external-link"></i></a>
+										</div>
+									</div>
+									<div class="project-info">
+										<h4><i class="fa fa-credit-card"></i> Credit Card Management System</h4>
+										<p>Comprehensive financial application for managing credit cards, transactions, payments, and user profiles with secure authentication and real-time tracking.</p>
+										<div class="tech-stack"><span>PHP</span><span>PDO</span><span>jQuery</span><span>MySQL</span><span>Bootstrap</span></div>
+									</div>
+								</div>
+								<div class="project-card">
+									<div class="project-img" style="background-image: url('https://img.freepik.com/free-vector/construction-workers-with-tools_23-2147651694.jpg'); background-size: cover;">
+										<div class="project-overlay">
+											<a href="https://github.com/sathyanagaraj09" target="_blank"><i class="fa fa-github"></i></a>
+											<a href="#"><i class="fa fa-external-link"></i></a>
+										</div>
+									</div>
+									<div class="project-info">
+										<h4><i class="fa fa-building"></i> Construction Management System</h4>
+										<p>Complete project management solution for construction companies - track projects, inventory, contractors, budgets, and resource allocation.</p>
+										<div class="tech-stack"><span>PHP</span><span>JavaScript</span><span>MySQL</span><span>HTML5/CSS3</span></div>
+									</div>
+								</div>
+								<div class="project-card">
+									<div class="project-img" style="background-image: url('https://img.freepik.com/free-vector/insurance-agent-concept_23-2148627765.jpg'); background-size: cover;">
+										<div class="project-overlay">
+											<a href="https://github.com/sathyanagaraj09" target="_blank"><i class="fa fa-github"></i></a>
+											<a href="#"><i class="fa fa-external-link"></i></a>
+										</div>
+									</div>
+									<div class="project-info">
+										<h4><i class="fa fa-shield"></i> Insurance Agency Admin Panel</h4>
+										<p>Admin dashboard for insurance agencies - policy management, claims tracking, client onboarding, commission calculation, and report generation.</p>
+										<div class="tech-stack"><span>PHP</span><span>Bootstrap</span><span>jQuery</span><span>MySQL</span></div>
+									</div>
+								</div>
+								<div class="project-card">
+									<div class="project-img" style="background-image: url('https://img.freepik.com/free-vector/investment-data-concept-illustration_114360-5286.jpg'); background-size: cover;">
+										<div class="project-overlay">
+											<a href="https://github.com/sathyanagaraj09" target="_blank"><i class="fa fa-github"></i></a>
+											<a href="#"><i class="fa fa-external-link"></i></a>
+										</div>
+									</div>
+									<div class="project-info">
+										<h4><i class="fa fa-line-chart"></i> Investment Module</h4>
+										<p>Financial portfolio management system with real-time tracking, investment analytics, performance visualization, and risk assessment tools.</p>
+										<div class="tech-stack"><span>PHP</span><span>JavaScript</span><span>Chart.js</span><span>MySQL</span></div>
+									</div>
+								</div>
+								<div class="project-card">
+									<div class="project-img" style="background-image: url('https://img.freepik.com/free-vector/insurance-concept-illustration_114360-1469.jpg'); background-size: cover;">
+										<div class="project-overlay">
+											<a href="https://github.com/sathyanagaraj09" target="_blank"><i class="fa fa-github"></i></a>
+											<a href="#"><i class="fa fa-external-link"></i></a>
+										</div>
+									</div>
+									<div class="project-info">
+										<h4><i class="fa fa-umbrella"></i> Insure360 Platform</h4>
+										<p>End-to-end insurance management solution with customer portal, policy administration, claims processing, and automated notifications.</p>
+										<div class="tech-stack"><span>PHP</span><span>jQuery</span><span>MySQL</span><span>Bootstrap</span></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Data Science Projects Section -->
+				<div id="datascience-projects" class="profile-section">
+					<div class="container">
+						<div class="portfolio-category">
+							<div class="text-center">
+								<div class="category-title">
+									<h3><i class="fa fa-bar-chart"></i> Data Science & Machine Learning Projects</h3>
+									<p>NLP | Predictive Modeling | Data Visualization | AI Solutions</p>
+								</div>
+							</div>
+							<div class="grid-container">
+								<div class="project-card">
+									<div class="project-img" style="background-image: url('https://img.freepik.com/free-vector/sentiment-analysis-concept-illustration_114360-8571.jpg'); background-size: cover;">
+										<div class="project-overlay">
+											<a href="https://github.com/sathyanagaraj09" target="_blank"><i class="fa fa-github"></i></a>
+											<a href="#"><i class="fa fa-external-link"></i></a>
+										</div>
+									</div>
+									<div class="project-info">
+										<h4><i class="fa fa-smile-o"></i> Sentiment Analysis System</h4>
+										<p>NLP model achieving 81% accuracy for analyzing social media and customer feedback sentiment using machine learning algorithms.</p>
+										<div class="tech-stack"><span>Python</span><span>NLTK</span><span>scikit-learn</span><span>Pandas</span><span>Flask</span></div>
+										<span class="project-stats"><i class="fa fa-tachometer"></i> Accuracy: 81% | 50K+ reviews</span>
+									</div>
+								</div>
+								<div class="project-card">
+									<div class="project-img" style="background-image: url('https://img.freepik.com/free-vector/data-analytics-concept-illustration_114360-2185.jpg'); background-size: cover;">
+										<div class="project-overlay">
+											<a href="https://github.com/sathyanagaraj09" target="_blank"><i class="fa fa-github"></i></a>
+											<a href="#"><i class="fa fa-external-link"></i></a>
+										</div>
+									</div>
+									<div class="project-info">
+										<h4><i class="fa fa-dollar"></i> Price Prediction System</h4>
+										<p>Machine Learning regression model for price forecasting with interactive Power BI dashboards for business intelligence.</p>
+										<div class="tech-stack"><span>Python</span><span>scikit-learn</span><span>Power BI</span><span>Pandas</span><span>NumPy</span></div>
+										<span class="project-stats"><i class="fa fa-tachometer"></i> Model: Random Forest & XGBoost | R²: 0.89</span>
+									</div>
+								</div>
+								<!-- <div class="project-card"> -->
+									<!-- <div class="project-img" style="background-image: url('https://img.freepik.com/free-vector/customer-feedback-concept-illustration_114360-1930.jpg'); background-size: cover;">
+										<div class="project-overlay">
+											<a href="https://github.com/sathyanagaraj09" target="_blank"><i class="fa fa-github"></i></a>
+											<a href="#"><i class="fa fa-external-link"></i></a>
+										</div>
+									</div> -->
+									<!-- <div class="project-info">
+										<h4><i class="fa fa-users"></i> Customer Churn Prediction</h4>
+										<p>Predictive analytics model to identify customers at risk of churn with actionable insights and visualization dashboards.</p>
+										<div class="tech-stack"><span>Python</span><span>Logistic Regression</span><span>Power BI</span><span>SQL</span></div>
+										<span class="project-stats"><i class="fa fa-tachometer"></i> AUC: 0.87 | Precision: 84%</span>
+									</div> -->
+								<!-- </div> -->
+								<div class="project-card">
+									<div class="project-img" style="background-image: url('https://img.freepik.com/free-vector/business-data-report-concept-illustration_114360-9269.jpg'); background-size: cover;">
+										<div class="project-overlay">
+											<a href="https://github.com/sathyanagaraj09" target="_blank"><i class="fa fa-github"></i></a>
+											<a href="#"><i class="fa fa-external-link"></i></a>
+										</div>
+									</div>
+									<div class="project-info">
+										<h4><i class="fa fa-line-chart"></i> Sales Forecasting Dashboard</h4>
+										<p>Interactive Power BI dashboard with time series forecasting for sales trends and business performance analytics.</p>
+										<div class="tech-stack"><span>Power BI</span><span>DAX</span><span>Python</span><span>Excel</span></div>
+										<span class="project-stats"><i class="fa fa-tachometer"></i> Forecast Accuracy: 92%</span>
+									</div>
+								</div>
+								<div class="project-card">
+									<div class="project-img" style="background-image: url('https://img.freepik.com/free-vector/natural-language-processing-concept-illustration_114360-8236.jpg'); background-size: cover;">
+										<div class="project-overlay">
+											<a href="https://github.com/sathyanagaraj09" target="_blank"><i class="fa fa-github"></i></a>
+											<a href="#"><i class="fa fa-external-link"></i></a>
+										</div>
+									</div>
+									<div class="project-info">
+										<h4><i class="fa fa-language"></i> NLP Text Classifier</h4>
+										<p>Natural Language Processing system for automated text categorization and topic modeling using advanced ML techniques.</p>
+										<div class="tech-stack"><span>Python</span><span>Transformers</span><span>BERT</span><span>TensorFlow</span></div>
+										<span class="project-stats"><i class="fa fa-tachometer"></i> Accuracy: 86% | 10+ Categories</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section><!--/.portfolio-->
+		<!--portfolio end -->
+
+		<!--contact start -->
+		<section id="contact" class="contact">
+			<div class="section-heading text-center">
+				<h2>contact me</h2>
+			</div>
+			<div class="container">
+				<div class="contact-content">
+					<div class="row">
+						<div class="col-md-offset-1 col-md-5 col-sm-6">
+							<div class="single-contact-box">
+								<div class="contact-form">
+									<form>
+										<div class="row">
+											<div class="col-sm-6 col-xs-12"><div class="form-group"><input type="text" class="form-control" id="name" placeholder="Name*" name="name"></div></div>
+											<div class="col-sm-6 col-xs-12"><div class="form-group"><input type="email" class="form-control" id="email" placeholder="Email*" name="email"></div></div>
+										</div>
+										<div class="row"><div class="col-sm-12"><div class="form-group"><input type="text" class="form-control" id="subject" placeholder="Subject" name="subject"></div></div></div>
+										<div class="row"><div class="col-sm-12"><div class="form-group"><textarea class="form-control" rows="8" id="comment" placeholder="Message"></textarea></div></div></div>
+										<div class="row"><div class="col-sm-12"><div class="single-contact-btn"><a class="contact-btn" href="#" role="button">submit</a></div></div></div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-offset-1 col-md-5 col-sm-6">
+							<div class="single-contact-box">
+								<div class="contact-adress">
+									<div class="contact-add-head"><h3>Sathya Barani A N</h3><p>Software Developer & Data Scientist</p></div>
+									<div class="contact-add-info">
+										<div class="single-contact-add-info"><h3>phone</h3><p>9361105525</p></div>
+										<div class="single-contact-add-info"><h3>email</h3><p>ansathyabarani@gmail.com</p></div>
+										<div class="single-contact-add-info"><h3>github</h3><p>github.com/sathyanagaraj09</p></div>
+									</div>
+								</div>
+								<div class="hm-foot-icon">
+									<ul>
+										<li><a href="https://github.com/sathyanagaraj09" target="_blank"><i class="fa fa-github"></i></a></li>
+										<li><a href="https://linkedin.com/in/sathya-barani" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+										<li><a href="mailto:ansathyabarani@gmail.com"><i class="fa fa-envelope"></i></a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section><!--/.contact-->
+		<!--contact end -->
+
+		<!--footer-copyright start-->
+		<footer id="footer-copyright" class="footer-copyright">
+			<div class="container">
+				<div class="hm-footer-copyright text-center">
+					<p>&copy; copyright Sathya Barani. Design and developed with <i class="fa fa-heart"></i> by Sathya Barani</p>
+				</div>
+			</div>
+			<div id="scroll-Top"><div class="return-to-top"><i class="fa fa-angle-up" id="scroll-top"></i></div></div>
+		</footer><!--/.footer-copyright-->
+		
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="assets/js/bootsnav.js"></script>
+		<script src="assets/js/jquery.sticky.js"></script>
+		<script src="assets/js/progressbar.js"></script>
+		<script src="assets/js/jquery.appear.js"></script>
+        <script src="assets/js/custom.js"></script>
+        
+        <script>
+            function showRole(role) {
+                // Update button active state
+                document.querySelectorAll('.role-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                event.target.classList.add('active');
+                
+                // Show/hide sections
+                if(role === 'developer') {
+                    document.getElementById('developer-projects').classList.add('active-section');
+                    document.getElementById('datascience-projects').classList.remove('active-section');
+                } else {
+                    document.getElementById('developer-projects').classList.remove('active-section');
+                    document.getElementById('datascience-projects').classList.add('active-section');
+                }
+            }
+            
+            // Smooth scroll
+            $(document).ready(function(){
+                $('.smooth-menu a, .return-to-top').on('click', function(event) {
+                    var target = $(this.getAttribute('href'));
+                    if(target.length) {
+                        event.preventDefault();
+                        $('html, body').stop().animate({
+                            scrollTop: target.offset().top - 70
+                        }, 1000);
+                    }
+                });
+                
+                $('.contact-btn').click(function(e){
+                    e.preventDefault();
+                    alert('Thank you for reaching out! Sathya will get back to you soon.');
+                });
+            });
+        </script>
+    </body>
+</html>
